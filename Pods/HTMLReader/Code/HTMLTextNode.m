@@ -47,6 +47,13 @@ NS_ASSUME_NONNULL_BEGIN
     return copy;
 }
 
+- (void)replaceString:(NSString *)string
+{
+    NSParameterAssert(string);
+    
+    _data = [NSMutableString stringWithString:string];
+}
+
 @end
 
 NS_ASSUME_NONNULL_END

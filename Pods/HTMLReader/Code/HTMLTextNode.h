@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// Adds a string to the end of the node's text.
 - (void)appendString:(NSString *)string;
 
+- (void)replaceString:(NSString *)string;
 @end
 
 NS_ASSUME_NONNULL_END

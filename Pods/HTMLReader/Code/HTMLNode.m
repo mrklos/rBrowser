@@ -249,6 +249,22 @@ NS_ASSUME_NONNULL_BEGIN
     return textComponents;
 }
 
+- (void)editString:(NSString *)string atChildNodeIndex:(NSUInteger)index
+{
+    NSParameterAssert(string);
+    
+    id candidate = index > 0 ? _children[index - 1] : nil;
+    HTMLTextNode *textNode;
+    if ([candidate isKindOfClass:[HTMLTextNode class]]) {
+        textNode = candidate;
+    } else {
+        textNode = [HTMLTextNode new];
+        [[self mutableChildren] insertObject:textNode atIndex:index];
+    }
+    [textNode replaceString:string];
+}
+
+
 #pragma mark NSCopying
 
 - (id)copyWithZone:(NSZone * __nullable)zone

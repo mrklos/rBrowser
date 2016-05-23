@@ -46,6 +46,7 @@
 		7C38BF1421330E2A17870969 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DE3E01251CEDBD7200FC62CF /* WebKit.framework */,
 				16A5147F49895BF9613BFF85 /* Pods_rBrowser.framework */,
 			);
 			name = Frameworks;
@@ -63,7 +64,6 @@
 		DE3E01031CED935B00FC62CF = {
 			isa = PBXGroup;
 			children = (
-				DE3E01251CEDBD7200FC62CF /* WebKit.framework */,
 				DE3E010E1CED935B00FC62CF /* rBrowser */,
 				DE3E010D1CED935B00FC62CF /* Products */,
 				923580AA1AFBCE5012FB2FA0 /* Pods */,
