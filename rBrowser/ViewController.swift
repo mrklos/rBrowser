@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet var urlBar : UITextField!
     @IBOutlet var webView : UIWebView!
     @IBOutlet var button : UIButton!
+    //d
+    
     
 
     override func viewDidLoad() {
@@ -23,6 +25,8 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        
     }
 
     @IBAction func buttonPressed(){
