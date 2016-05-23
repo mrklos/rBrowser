@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="rBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" misplaced="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LTk-Hd-pAw">
+                                <rect key="frame" x="0.0" y="50" width="600" height="550"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="left" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Write URL" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n2J-ed-fQ2">
+                                <rect key="frame" x="0.0" y="20" width="435" height="30"/>
+                                <accessibility key="accessibilityConfiguration" hint="Write URL" label="Write URL">
+                                    <accessibilityTraits key="traits" selected="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="20" width="211" height="30"/>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="right" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mH0-T3-fPH">
+                                <rect key="frame" x="435" y="20" width="165" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="aSD-bj-yeO"/>
+                                </constraints>
+                                <state key="normal" title="Reverse">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="211" y="20" width="189" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="buttonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="WPg-GH-TOm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mH0-T3-fPH" secondAttribute="trailing" id="CN2-jd-cjx"/>
+                            <constraint firstItem="n2J-ed-fQ2" firstAttribute="top" secondItem="mH0-T3-fPH" secondAttribute="top" id="g9u-Y7-WjY"/>
+                            <constraint firstItem="mH0-T3-fPH" firstAttribute="leading" secondItem="n2J-ed-fQ2" secondAttribute="trailing" id="gQq-ni-sNF"/>
+                            <constraint firstItem="mH0-T3-fPH" firstAttribute="trailing" secondItem="LTk-Hd-pAw" secondAttribute="trailing" id="iDa-zL-zAt"/>
+                            <constraint firstItem="n2J-ed-fQ2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lIl-rW-c01"/>
+                            <constraint firstItem="n2J-ed-fQ2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="olM-jN-KH3"/>
+                            <constraint firstItem="LTk-Hd-pAw" firstAttribute="top" secondItem="n2J-ed-fQ2" secondAttribute="bottom" id="pTa-dR-yW1"/>
+                            <constraint firstItem="LTk-Hd-pAw" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="qHC-LO-Jie"/>
+                            <constraint firstItem="n2J-ed-fQ2" firstAttribute="leading" secondItem="LTk-Hd-pAw" secondAttribute="leading" id="vaA-Uf-eU0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="mH0-T3-fPH" id="qRg-MO-Ljf"/>
+                        <outlet property="urlBar" destination="n2J-ed-fQ2" id="W8f-3x-bBw"/>
+                        <outlet property="webView" destination="LTk-Hd-pAw" id="K3V-V4-VaH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="540" y="479"/>
+        </scene>
+    </scenes>
+</document>
