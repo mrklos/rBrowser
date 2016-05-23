@@ -103,13 +103,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)insertString:(NSString *)string atChildNodeIndex:(NSUInteger)childNodeIndex;
 
-/**
-    Metoda zamieniajaca string na inny
- */
--(void)editString:(NSString *)string atChildNodeIndex:(NSUInteger)childNodeIndex;
-
--(void)reverseNodeString:(NSUInteger)childNodeIndex;
-
 @end
 
 NS_ASSUME_NONNULL_END

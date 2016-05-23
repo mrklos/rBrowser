@@ -195,35 +195,6 @@ NS_ASSUME_NONNULL_BEGIN
     [textNode appendString:string];
 }
 
-- (void)editString:(NSString *)string atChildNodeIndex:(NSUInteger)index
-{
-    NSParameterAssert(string);
-    
-    id candidate = index > 0 ? _children[index - 1] : nil;
-    HTMLTextNode *textNode;
-    if ([candidate isKindOfClass:[HTMLTextNode class]]) {
-        textNode = candidate;
-    } else {
-        textNode = [HTMLTextNode new];
-        [[self mutableChildren] insertObject:textNode atIndex:index];
-    }
-    [textNode replaceString:string];
-}
-
-- (void)reverseNodeString:(NSUInteger)index
-{
-
-    id candidate = index > 0 ? _children[index - 1] : nil;
-    HTMLTextNode *textNode;
-    if ([candidate isKindOfClass:[HTMLTextNode class]]) {
-        textNode = candidate;
-    } else {
-        textNode = [HTMLTextNode new];
-        [[self mutableChildren] insertObject:textNode atIndex:index];
-    }
-    [textNode revString2];
-}
-
 - (HTMLArrayOf(HTMLElement *) *)childElementNodes
 {
 	NSMutableArray *childElements = [NSMutableArray arrayWithCapacity:self.numberOfChildren];
