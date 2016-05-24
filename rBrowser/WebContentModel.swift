@@ -9,55 +9,59 @@
 import Foundation
 import HTMLReader
 
-class WebContentModel{
+class WebContentModel {
     
-    func getUrlContent(url: NSURL) -> String {
+    func getUrlContent(url: NSURL) -> String? {
             do {
                 let myHTMLString = try String(contentsOfURL: url, encoding: NSUTF8StringEncoding)
                 return myHTMLString
             } catch {
                 print("Error : \(error)")
             }
-        return ""
+        return nil
     }
     
+    /// Function for reverting given text
     func revString(word: String) -> String {
-        var returnArray = [String]()
+        var arr = [String]()
         //dzieli na slowa
         let wordArray = word.componentsSeparatedByString(" ")
         //obraca kazde slowo
         for singleWord in wordArray {
-            returnArray.append(String(singleWord.characters.reverse()))
+            arr.append(String(singleWord.characters.reverse()))
         }
         //scala ponownie do stringa
-        return returnArray.joinWithSeparator(" ")
+        return arr.joinWithSeparator(" ")
     }
     
-    func returnReversedTextWebsite(url: NSURL) -> String{
+    func getReversedTextWebsite(url: NSURL) -> String? {
         //pobiera url jako string
-        let html = getUrlContent(url)
-        //instancja parsera z zawartoscia urla
-        let doc = HTMLDocument(string: html)
-        //recursywnie porusza sie w dol drzewa zrobionego z HTMLNode i wywoluje odwracanie calego teskstu
-        recurringNodeExplore(doc.rootElement!)
-        //zwaraca string
-        return doc.serializedFragment
+        if let html = getUrlContent(url) {
+            //instancja parsera z zawartoscia urla
+            let doc = HTMLDocument(string: html)
+            //recursywnie porusza sie w dol drzewa zrobionego z HTMLNode i wywoluje odwracanie calego teskstu
+            if let root = doc.rootElement {
+                recurringNodeExplore(root)
+                //zwaraca string
+                return doc.serializedFragment
+            }
+        }
+        return nil
     }
     
-    func recurringNodeExplore(mutableNodes : HTMLNode){
-        for nodeNumber in 0..<mutableNodes.numberOfChildren{
-            if mutableNodes.childAtIndex(nodeNumber).numberOfChildren == 0{
-                let str = mutableNodes.childAtIndex(nodeNumber).textContent.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-                if(!str.isEmpty){
-                    print(mutableNodes.childAtIndex(nodeNumber).textContent)
-                    
-                    mutableNodes.editString(revString(mutableNodes.childAtIndex(nodeNumber).textContent), atChildNodeIndex: nodeNumber)
-                    
-                    print(mutableNodes.childAtIndex(nodeNumber).textContent)
+    func recurringNodeExplore(mutableNodes : HTMLNode) {
+        for i in 0..<mutableNodes.numberOfChildren {
+            let node = mutableNodes.childAtIndex(i)
+            if node.numberOfChildren == 0 {
+                let str = node.textContent.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                if !str.isEmpty {
+                    print(node.textContent)
+                    mutableNodes.editString(revString(node.textContent), atChildNodeIndex: i)
+                    print(node.textContent)
                 }
             } else {
-                for childNodeNumber in 0..<mutableNodes.childAtIndex(nodeNumber).numberOfChildren{
-                    recurringNodeExplore(mutableNodes.childAtIndex(nodeNumber).childAtIndex(childNodeNumber))
+                for j in 0..<node.numberOfChildren{
+                    recurringNodeExplore(node.childAtIndex(j))
                 }
             }
         }

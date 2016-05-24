@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet var urlBar : UITextField!
     @IBOutlet var webView : UIWebView!
     @IBOutlet var button : UIButton!
-    //d
+
     
     
 
@@ -28,13 +28,17 @@ class ViewController: UIViewController {
         
         
     }
+    
+    // MARK: User interaction
 
-    @IBAction func buttonPressed(){
-        if(!(urlBar.text?.isEmpty)!){
-            let url = NSURL(string: urlBar.text!)
-            let webContentModel = WebContentModel()
-            let htmlString = webContentModel.returnReversedTextWebsite(url!)
-            webView.loadHTMLString(htmlString, baseURL:url)
+    @IBAction func buttonPressed() {
+        if let text = urlBar.text where !text.isEmpty {
+            if let url = NSURL(string: text) {
+                let webContentModel = WebContentModel()
+                if let htmlString = webContentModel.getReversedTextWebsite(url) {
+                    webView.loadHTMLString(htmlString, baseURL:url)
+                }
+            }
         }
     }
 }
