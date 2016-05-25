@@ -17,16 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" misplaced="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LTk-Hd-pAw">
-                                <rect key="frame" x="0.0" y="24" width="600" height="576"/>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LTk-Hd-pAw">
+                                <rect key="frame" x="0.0" y="82" width="600" height="518"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="left" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Write URL" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n2J-ed-fQ2">
-                                <rect key="frame" x="0.0" y="20" width="500" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="left" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Write URL" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n2J-ed-fQ2">
+                                <rect key="frame" x="0.0" y="20" width="500" height="62"/>
                                 <color key="backgroundColor" red="1" green="0.99738373768801458" blue="0.34462538714888513" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" hint="Write URL" label="Write URL">
                                     <accessibilityTraits key="traits" selected="YES"/>
                                 </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="Eoh-1E-r0G"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -34,7 +37,7 @@
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="right" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mH0-T3-fPH">
-                                <rect key="frame" x="500" y="20" width="100" height="30"/>
+                                <rect key="frame" x="500" y="20" width="100" height="62"/>
                                 <color key="backgroundColor" red="0.63300350527696025" green="0.91241420464781808" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="aSD-bj-yeO"/>
@@ -53,12 +56,13 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="mH0-T3-fPH" secondAttribute="trailing" id="CN2-jd-cjx"/>
+                            <constraint firstItem="LTk-Hd-pAw" firstAttribute="top" secondItem="mH0-T3-fPH" secondAttribute="bottom" id="Qas-Jp-2H7"/>
+                            <constraint firstItem="mH0-T3-fPH" firstAttribute="height" secondItem="n2J-ed-fQ2" secondAttribute="height" id="bfd-7y-rPb"/>
                             <constraint firstItem="n2J-ed-fQ2" firstAttribute="top" secondItem="mH0-T3-fPH" secondAttribute="top" id="g9u-Y7-WjY"/>
                             <constraint firstItem="mH0-T3-fPH" firstAttribute="leading" secondItem="n2J-ed-fQ2" secondAttribute="trailing" id="gQq-ni-sNF"/>
                             <constraint firstItem="mH0-T3-fPH" firstAttribute="trailing" secondItem="LTk-Hd-pAw" secondAttribute="trailing" id="iDa-zL-zAt"/>
                             <constraint firstItem="n2J-ed-fQ2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lIl-rW-c01"/>
                             <constraint firstItem="n2J-ed-fQ2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="olM-jN-KH3"/>
-                            <constraint firstItem="LTk-Hd-pAw" firstAttribute="top" secondItem="n2J-ed-fQ2" secondAttribute="bottom" constant="-26" id="pTa-dR-yW1"/>
                             <constraint firstItem="LTk-Hd-pAw" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="qHC-LO-Jie"/>
                             <constraint firstItem="n2J-ed-fQ2" firstAttribute="leading" secondItem="LTk-Hd-pAw" secondAttribute="leading" id="vaA-Uf-eU0"/>
                         </constraints>
